@@ -14,7 +14,12 @@ const output = {
 const process = {
   login: (req, res) => {
     const user = new User(req.body);
-    const response = user.login();
+    let response = 0;
+    if (!user.body?.name) {
+      response = user.login();
+    } else {
+      response = user.register();
+    }
     return res.json(response);
   },
 };

@@ -11,6 +11,7 @@ const home = require('./src/routes/home');
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
+//경로 기본폴더 src 지정
 app.use(express.static(`${__dirname}/src/public`));
 
 app.use(express.json());

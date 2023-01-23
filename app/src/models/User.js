@@ -17,6 +17,11 @@ class User {
     }
     return { success: false, msg: '사용자 아이디가 없습니다.' };
   }
+
+  register() {
+    const result = UserStorage.save(this.body);
+    return result;
+  }
 }
 
 module.exports = User;
