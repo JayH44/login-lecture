@@ -18,9 +18,13 @@ class User {
     return { success: false, msg: '사용자 아이디가 없습니다.' };
   }
 
-  register() {
-    const result = UserStorage.save(this.body);
-    return result;
+  async register() {
+    try {
+      const result = await UserStorage.save(this.body);
+      return result;
+    } catch (e) {
+      return { success: false, msg: e };
+    }
   }
 }
 
