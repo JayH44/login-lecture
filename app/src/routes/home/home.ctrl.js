@@ -12,13 +12,13 @@ const output = {
 };
 
 const process = {
-  login: (req, res) => {
+  login: async (req, res) => {
     const user = new User(req.body);
     let response = 0;
     if (!user.body?.name) {
-      response = user.login();
+      response = await user.login();
     } else {
-      response = user.register();
+      response = await user.register();
     }
     return res.json(response);
   },
